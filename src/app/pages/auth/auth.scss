@@ -1,0 +1,60 @@
+@import '../../assets/styles/config/all';
+
+.sten-auth-page {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    background: url("../../assets/images/bg_auth.jpg") no-repeat center top;
+    background-size: cover;
+    overflow: auto;
+    position: relative;
+    padding: 0 $gutter;
+}
+
+.sten-auth-page__header {
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 6rem;
+    @media (max-width: $screen-sm-max) {
+        padding-top: 2rem;
+    }
+}
+
+.sten-auth-page__header-logo {
+    width: 100%;
+    max-width: $auth-page-header-logo-max-width;
+}
+
+.sten-auth-page__footer {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 4rem;
+    @media (max-width: $screen-sm-max) {
+        padding-bottom: 2rem;
+    }
+    @media (min-width: $screen-lg-min) {
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        right: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* Sten Auth Panel */
+
+.sten-content.sten-auth-page__panel {
+    max-width: $auth-page-panel-max-width;
+    height: auto;
+    position: relative;
+    z-index: $z-index-1;
+    margin: 6rem auto;
+    @media (max-width: $screen-sm-max) {
+        margin: 2rem auto;
+    }
+}
+
+.sten-link.sten-auth-page__link {
+    text-transform: uppercase;
+    padding-bottom: $gutter/2;
+}

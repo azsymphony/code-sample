@@ -1,0 +1,201 @@
+@import "../../assets/styles/config/_all";
+
+.sten-input {
+    position: relative;
+    width: 100%;
+    height: $input-height;
+    &.sten-input--disabled {
+        opacity: 0.5;
+    }
+}
+
+.sten-input__input {
+    width: 100%;
+    height: 100%;
+    padding: $input-padding;
+    outline: none;
+    border: 1px solid $color-input-border;
+    background-color: $color-input-bg;
+    color: $color-input;
+    transition: all $input-transition-length;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    border-radius: 0;
+    -webkit-appearance: none;
+    &:not(:disabled):hover {
+        border-color: $color-input-hover-border;
+    }
+    &:not(:disabled):focus,
+    &:not(:disabled):active {
+        color: $color-input-focus;
+        border-color: $color-input-active-border;
+        ~ .sten-input__icon {
+            color: $color-input-focus;
+            &.sten-input__keyboard-icon {
+                &:hover {
+                    color: $color-input-keyboard-active;
+                }
+                &.sten-input__keyboard-icon--active {
+                    color: $color-input-keyboard-active;
+                }
+            }
+        }
+    }
+    &:disabled {
+        color: $color-input-disabled;
+        user-select: none;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        ~ .sten-input__icon {
+            color: $color-input-icon-autofill;
+            &.sten-input__keyboard-icon {
+                &:hover {
+                    color: $color-input-keyboard-active-autofill;
+                }
+                &.sten-input__keyboard-icon--active {
+                    color: $color-input-keyboard-active-autofill;
+                }
+            }
+        }
+    }
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+    &::-ms-clear {
+        display: none;
+    }
+    &::placeholder {
+        color: $color-input-placeholder;
+    }
+    .sten-input--text-center & {
+        text-align: center;
+    }
+    &.sten-input__input--invalid {
+        border-color: $color-input-invalid-border;
+        &:hover,
+        &:focus {
+            border-color: $color-input-invalid-hover-border;
+        }
+        &:focus {
+            background-color: $color-input-invalid-focus-bg;
+        }
+    }
+    &.sten-input__input--warning {
+        border-color: $color-input-warning-border;
+        &:hover,
+        &:focus {
+            border-color: $color-input-warning-hover-border;
+        }
+        &:focus {
+            background-color: $color-input-warning-focus-bg;
+        }
+    }
+}
+
+.sten-input--lg {
+    height: $input-lg-height;
+    .sten-input__input {
+        font-size: $font-size-md;
+        padding: $input-lg-padding;
+    }
+}
+
+.sten-input__input--has-unit {
+    padding-right: 2rem;
+}
+
+.sten-input__input--has-keyboard {
+    padding-right: 2.5rem;
+    &.sten-input__input--has-unit {
+        padding-right: 4.5rem;
+    }
+}
+
+.sten-input__input--clearable {
+    padding-right: 2.5rem;
+    &.sten-input__input--has-keyboard,
+    &.sten-input__input--has-unit {
+        padding-right: 4.5rem;
+        &.sten-input__input--has-unit {
+            padding-right: 6.5rem;
+        }
+    }
+}
+
+.sten-input__input--has-post {
+    padding-right: 2.5rem;
+    &.sten-input__input--has-keyboard,
+    &.sten-input__input--clearable {
+        padding-right: 4.5rem;
+        &.sten-input__input--clearable,
+        &.sten-input__has-unit {
+            padding-right: 6.5rem;
+            &.sten-input__input--has-unit {
+                padding-right: 8.5rem;
+            }
+        }
+    }
+}
+
+.sten-input__input--has-pre {
+    padding-left: 2.5rem;
+}
+
+.sten-input__icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -1/2*$input-icon-size;
+    font-size: $input-icon-size;
+    color: $color-input-icon;
+    transition: all $input-transition-length;
+}
+
+.sten-input__icon--pre {
+    left: 0.5rem;
+}
+
+.sten-input__icon--post {
+    right: 0.5rem;
+}
+
+.sten-input__icon--clear {
+    cursor: pointer;
+    font-size: 1.2rem;
+    right: 0.5rem;
+    margin-top: -0.55rem;
+    &:hover {
+        color: $color-text;
+    }
+    .sten-input__icon--post ~ &,
+    .sten-input__icon--keyboard ~ & {
+        right: 2.5rem;
+    }
+}
+
+.sten-input__keyboard-icon {
+    cursor: pointer;
+    right: 0.5rem;
+    transition: color $btn-transition-length;
+    &.sten-input__keyboard-icon--active {
+        color: $color-input-keyboard-active;
+    }
+    .sten-input__icon--post ~ & {
+        right: 2.5rem;
+    }
+}
+
+.sten-input__unit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    text-align: center;
+    line-height: $input-height;
+    color: $color-input-unit;
+    .sten-input--lg {
+        line-height: $input-lg-height;
+    }
+}

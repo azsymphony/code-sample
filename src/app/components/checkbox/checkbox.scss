@@ -1,0 +1,54 @@
+@import "../../assets/styles/config/all";
+
+.sten-checkbox {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: $checkbox-size;
+    font-size: $font-size-sm;
+    line-height: $checkbox-size;
+    user-select: none;
+    input {
+        opacity: 0;
+        visibility: hidden;
+        margin: 0 0 0 -13px;
+        vertical-align: middle;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+    }
+    &:before {
+        display: block;
+        background-color: $color-checkbox-bg;
+        border: 1px solid $color-checkbox-border;
+        width: $checkbox-size;
+        height: $checkbox-size;
+        left: 0;
+        top: 0;
+    }
+    &:after {
+        display: block;
+        background: $color-checkbox-check-bg;
+        width: calc(#{$checkbox-size} - 6px);
+        height: calc(#{$checkbox-size} - 6px);
+        top: 3px;
+        left: 3px;
+        transform: scale(0,0);
+        transition: all $checkbox-transition-length;
+    }
+    &.sten-checkbox--checked {
+        &:after {
+            transform: scale(1,1);
+        }
+    }
+    &.sten-checkbox--disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
+}
+
+.sten-checkbox__label {
+    margin-left: 0.5rem;
+}
